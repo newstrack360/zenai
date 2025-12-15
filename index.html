@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ZenAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b132b;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      margin-top: 30px;
+    }
+    textarea {
+      width: 100%;
+      max-width: 500px;
+      height: 120px;
+      border-radius: 8px;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #2ec4b6;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .response {
+      margin-top: 20px;
+      background: #1c2541;
+      padding: 15px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ZenAI</h1>
+  <p>Your personal AI assistant</p>
+
+  <textarea id="question" placeholder="Ask ZenAI..."></textarea><br>
+  <button onclick="askZenAI()">Ask</button>
+
+  <div class="response" id="response">
+    Please ask something.
+  </div>
+
+  <script>
+    function askZenAI() {
+      const q = document.getElementById("question").value.trim();
+      if (!q) {
+        document.getElementById("response").innerText = "Please ask something.";
+        return;
+      }
+      document.getElementById("response").innerText =
+        "ZenAI is thinking...\n\n(Next step: connect real AI)";
+    }
+  </script>
+
+</body>
+    </html>
