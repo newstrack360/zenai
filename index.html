@@ -51,7 +51,9 @@
   <h1>ZenAI</h1>
   <p>Your personal AI assistant</p>
 
-  <textarea id="question" placeholder="Ask ZenAI..."></textarea><br>
+  <textarea id="question" placeholder="Ask ZenAI..."></textarea>
+<br><br>
+<button onclick="startVoice()">🎤 Speak</button><br>
   <button onclick="askZenAI()">Ask</button>
 
   <div class="response" id="response">
@@ -68,7 +70,22 @@
       document.getElementById("response").innerText =
         "ZenAI is thinking...\n\n(Next step: connect real AI)";
     }
-  </script>
+function startVoice() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice not supported");
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.start();
+
+  recognition.onresult = function(event) {
+    document.getElementById("question").value =
+      event.results[0][0].transcript;
+  };
+}
+</script>
 
 </body>
     </html>
